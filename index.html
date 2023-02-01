@@ -28,7 +28,7 @@ select, input[type="text"] {
   box-sizing: border-box;
   border: 2px solid gray;
   border-radius: 4px;
-  height: 50px;
+  height: 45px;
 }
 
 select, input[type="number"] {
@@ -49,7 +49,7 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  height: 50px;
+  height: 45px;
   font-size: 18px;
 }
 
@@ -80,6 +80,7 @@ select, input[type="text"] {
   box-sizing: border-box;
   border: 2px solid gray;
   border-radius: 4px;
+  height: 45px;
 }
 
 select, input[type="number"] {
@@ -100,6 +101,8 @@ input[type="submit"] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  height: 45px;
+  font-size: 18px;
 }
 
 input[type="submit"]:hover {
@@ -111,17 +114,18 @@ input[type="submit"]:hover {
 
 
 <script type="text/javascript">
+
 function school_change(index){
-  var school1 = index.value;
+  var school1 = index;
   var school2 = document.getElementById("school2");
 
   if (school1 === "e") {
-    school2.innerHTML = "<option>子選項1-1</option><option>子選項1-2</option>";
+    school2.innerHTML = "<option>不願透漏/其他</option><option>淡水國小</option><option>育英國小</option><option>文化國小</option><option>天生國小</option><option>竹圍國小</option><option>鄧公國小</option><option>新興國小</option><option>新市國小</option>";
   } else if (school1 === "j") {
-    school2.innerHTML = "<option>子選項2-1</option><option>子選項2-2</option>";
+    school2.innerHTML = "<option>不願透漏</option><option>正德國中</option><option>淡水國中</option><option>淡江高中國中部</option><option>竹圍高中國中部</option>";
   } else {
-    school2.innerHTML = "<option>其他</option>";
-  }
+    school2.innerHTML = "<option>不願透漏</option><option>淡江高中</option><option>淡水商工</option><option>竹圍高中</option>";
+  };
 
 };
 
@@ -129,7 +133,6 @@ function school_change(index){
     var remaining = document.getElementById("remaining");
     remaining.innerHTML = maxLength - text.value.length;
   }
-
 
 </script>
 </head>
@@ -139,19 +142,22 @@ function school_change(index){
   <label for="reply">回覆其他文章(選填)</label>
   <input type="number" id="reply" name="reply" min="1" max="9999" placeholder="#後面的文章ID">
   <br><br>
-  <label for="school1">學校(選填)</label>
-  <select id="school1" name="school1" onchange="school_change(this)">
+  <label for="school1" onchange="school_change(this)">學校(選填)</label>
+  <select id="school1" name="school1" onchange="school_change(this.value)">
     <option value="o">不願透漏/高中職(含)以上</option>
     <option value="j">國中</option>
     <option value="e">國小</option>
   </select>
   <select id="school2" name="school2">
-    <option value="o">不願透漏/其他</option>
+    <option>不願透漏</option>
+    <option>淡江高中</option>
+    <option>淡水商工</option>
+    <option>竹圍高中</option>
   </select>
   <br><br>
   <label for="msg">留言內容</label>
   <input required type="text" id="msg" name="msg" maxlength="100" oninput="displayRemaining(this, 100)">
-  <div id="remaining">100</div>
+  <div id="remaining" style="text-align:right;font-size: 10px;">100</div>
   <br><br>
   <input type="submit" value="立刻投稿！">
 </form> 
