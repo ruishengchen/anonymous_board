@@ -6,6 +6,12 @@
 
 <style>
 
+#banner {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
 form {
   width: 300px;
@@ -42,7 +48,7 @@ select, input[type="number"] {
 
 input[type="submit"] {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #000000;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -54,11 +60,20 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #111111;
 }
 
 
+
 @media screen and (min-width:500px){
+
+#banner {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 form {
   width: 500px;
   margin: 0 auto;
@@ -137,7 +152,7 @@ function school_change(index){
 </script>
 </head>
 <body>
-<img src="banner.jpg" alt="Banner Image">
+<img src="https://ruishengchen.github.io/anonymous_board/banner.png" alt="Banner Image" id="banner"></img>
 <form>
   <label for="reply">回覆其他文章(選填)</label>
   <input type="number" id="reply" name="reply" min="1" max="9999" placeholder="#後面的文章ID">
